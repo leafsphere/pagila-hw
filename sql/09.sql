@@ -9,4 +9,5 @@ LEFT JOIN payment
 ON payment.staff_id = staff.staff_id
 WHERE payment_date >= '2020-01-01T00:00.000' 
     AND payment_date < '2020-02-01T00:00.000'
-GROUP BY staff.staff_id;
+GROUP BY staff.staff_id
+ORDER BY first_name;
