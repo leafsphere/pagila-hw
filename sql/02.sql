@@ -5,4 +5,4 @@
 
 SELECT actor_id
 FROM actor
-WHERE LEFT(first_name,1) LIKE 'J%';
+WHERE first_name LIKE 'J%';
