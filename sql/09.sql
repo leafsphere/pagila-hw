@@ -5,7 +5,7 @@
 
 SELECT first_name, last_name, sum(amount)
 FROM staff
-LEFT JOIN payment
+JOIN payment
 ON payment.staff_id = staff.staff_id
 WHERE payment_date >= '2020-01-01T00:00.000' 
     AND payment_date < '2020-02-01T00:00.000'
