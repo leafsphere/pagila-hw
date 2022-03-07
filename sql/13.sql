@@ -5,8 +5,9 @@
  * Use tables film and language, and order the results alphabetically by film title.
  */
 
-SELECT film_id, title, language.language_id, language.name
+SELECT film_id, title, language.language_id, name
 FROM film
-LEFT JOIN language ON film.language_id = language.language_id
+JOIN language ON (film.language_id = language.language_id)
 WHERE LEFT(title, 1) IN ('K', 'Q')
+AND language.name = 'English'
 ORDER BY title;
