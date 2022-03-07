@@ -5,6 +5,17 @@
  * Order by country alphabetically.
  */
 
+SELECT country, sum(amount) as profit
+FROM payment
+JOIN rental USING (rental_id)
+JOIN customer ON (rental.customer_id=customer.customer_id)
+JOIN address USING (address_id)
+JOIN city USING (city_id)
+JOIN country USING (country_id)
+GROUP BY country
+ORDER BY country;
+
+/*
 SELECT country, sum(sum) as profit
 FROM (
     SELECT rental.customer_id, sum(amount)
@@ -32,3 +43,4 @@ LEFT JOIN (
 ON customer_amount.customer_id = customer_country.customer_id
 GROUP BY country
 ORDER BY country;
+*/
