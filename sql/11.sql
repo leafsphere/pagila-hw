@@ -6,7 +6,7 @@
 
 SELECT film.film_id, title, COUNT(film.film_id) as count
 FROM inventory
-JOIN film ON inventory.film_id = film.film_id
+JOIN film ON (inventory.film_id = film.film_id)
 WHERE LOWER(LEFT(title, 1)) = 'h'
 GROUP BY film.film_id
 ORDER BY title DESC;
