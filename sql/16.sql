@@ -5,6 +5,15 @@
  */
 
 SELECT title, SUM(amount) as profit
+FROM film
+JOIN inventory USING (film_id)
+JOIN rental USING (inventory_id)
+JOIN payment USING (rental_id)
+GROUP BY title
+ORDER BY profit DESC;
+
+/* 
+SELECT title, SUM(amount) as profit
 FROM (
 	SELECT title, inventory_id
 	FROM film
@@ -20,3 +29,4 @@ ON title_inventory_id.inventory_id = inventory_id_amount.inventory_id
 GROUP BY title
 HAVING SUM(amount) IS NOT NULL
 ORDER BY profit DESC;
+*/
